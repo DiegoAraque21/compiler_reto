@@ -1,0 +1,12 @@
+Input: 1+1+1
+Node 0: Type=INITIAL, Label=INIT
+Node 1: Type=NUMBER, Label=NUM_1, Value=1
+Node 2: Type=NUMBER, Label=NUM_1, Value=1
+Node 3: Type=PLUS, Label=+, Value=
+Node 4: Type=NUMBER, Label=NUM_1, Value=1
+Node 5: Type=PLUS, Label=+, Value=
+Edge from Node 0 to Node 5
+Edge from Node 1 to Node 3
+Edge from Node 2 to Node 3
+Edge from Node 3 to Node 5
+Edge from Node 4 to Node 5

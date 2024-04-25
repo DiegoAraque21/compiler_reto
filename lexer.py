@@ -16,12 +16,7 @@ def serialize_graph(G):
         node_info = f"Node {node_id}: Type={node_data['type']}, Label={node_data['label']}"
         # if the node has a value check it
         if 'value' in node_data:
-            # if the value is an array, convert it to a string
-            if isinstance(node_data['value'], np.ndarray):
-                value_str = np.array2string(node_data['value'], separator=', ')
-            # else just convert it to a string
-            else:
-                value_str = str(node_data['value'])
+            value_str = str(node_data['value'])
             # add the value to the node information
             node_info += f", Value={value_str}"
         # add it to our result
@@ -495,7 +490,9 @@ if not read_file_1:
         execute_parse_tree(parseGraph)
         serialized = serialize_graph(parseGraph)
         # write serialized graph to file
-        with open("graph.json", "w") as f:
+        with open("graph.txt", "w") as f:
+            # write title
+            f.write("Input: " + data + "\n")
             f.write(str(serialized))
 
     print("Finished, accepted input.")
