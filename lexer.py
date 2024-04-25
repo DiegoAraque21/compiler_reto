@@ -5,6 +5,35 @@ from networkx.drawing.nx_pydot import graphviz_layout
 import matplotlib.pyplot as plt
 from library import *
 
+# function to serialize the graph
+def serialize_graph(G):
+    # serialized array for the result
+    output = []
+
+    # iterate over the nodes and edges of the graph we created
+    for node_id, node_data in G.nodes(data=True):
+        # Save node information in a variable
+        node_info = f"Node {node_id}: Type={node_data['type']}, Label={node_data['label']}"
+        # if the node has a value check it
+        if 'value' in node_data:
+            # if the value is an array, convert it to a string
+            if isinstance(node_data['value'], np.ndarray):
+                value_str = np.array2string(node_data['value'], separator=', ')
+            # else just convert it to a string
+            else:
+                value_str = str(node_data['value'])
+            # add the value to the node information
+            node_info += f", Value={value_str}"
+        # add it to our result
+        output.append(node_info)
+    
+    # for each of the edges, add them to the result,
+    # to keep track of the connections in the file exported
+    for u, v in G.edges():
+        output.append(f"Edge from Node {u} to Node {v}")
+    
+    return "\n".join(output)
+
 # Global variables
 parseGraph = None
 draw = True
@@ -26,7 +55,6 @@ tokens =(
     "COMMA",
     "STRING",
     "CONNECT",
-    "NONE"
 )
 
 # Symbol table
@@ -465,5 +493,9 @@ if not read_file_1:
             plt.show()
 
         execute_parse_tree(parseGraph)
+        serialized = serialize_graph(parseGraph)
+        # write serialized graph to file
+        with open("graph.json", "w") as f:
+            f.write(str(serialized))
 
     print("Finished, accepted input.")
