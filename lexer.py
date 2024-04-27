@@ -33,7 +33,7 @@ def serialize_graph(G):
 parseGraph = None
 draw = True
 NODE_COUNTER = 0
-read_file_1 = False
+read_file_1 = input("Enter file you want to read or press enter if you don't have a file: ")
 
 # Tokens
 tokens =(
@@ -435,9 +435,10 @@ def visit_node(tree, node_id, parent_id):
 # Build parser
 parser = yacc.yacc()
 
+
 # If File is true then read from file
-if read_file_1:
-    with open("file.txt", "r") as file:
+if len(read_file_1) > 0:
+    with open(read_file_1, "r") as file:
         for line in file:
             NODE_COUNTER = 0
             parseGraph = nx.Graph()
@@ -456,9 +457,7 @@ if read_file_1:
     
     print("Finished, processed file.")
 
-
-# Init Lexer
-if not read_file_1:
+else:
     while True:
         try:
             data = input("input>> ")
