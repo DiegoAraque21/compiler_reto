@@ -1,4 +1,22 @@
-Input: a
+Input: 5+8*2/(6+2)
 Node 0: Type=INITIAL, Label=INIT
-Node 1: Type=VARIABLE, Label=VAR_a, Value=a
-Edge from Node 0 to Node 1
+Node 1: Type=NUMBER, Label=NUM_5, Value=5
+Node 2: Type=NUMBER, Label=NUM_8, Value=8
+Node 3: Type=NUMBER, Label=NUM_2, Value=2
+Node 4: Type=TIMES, Label=*, Value=
+Node 5: Type=NUMBER, Label=NUM_6, Value=6
+Node 6: Type=NUMBER, Label=NUM_2, Value=2
+Node 7: Type=PLUS, Label=+, Value=
+Node 8: Type=GROUP, Label={}, Value=
+Node 9: Type=DIVIDE, Label=/, Value=
+Node 10: Type=PLUS, Label=+, Value=
+Edge from Node 0 to Node 10
+Edge from Node 1 to Node 10
+Edge from Node 2 to Node 4
+Edge from Node 3 to Node 4
+Edge from Node 4 to Node 9
+Edge from Node 5 to Node 7
+Edge from Node 6 to Node 7
+Edge from Node 7 to Node 8
+Edge from Node 8 to Node 9
+Edge from Node 9 to Node 10

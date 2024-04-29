@@ -67,8 +67,8 @@ def add_node(attr):
 
 
 # Reserved keywords
-symbol_table["pi"] = 3.14159265359 # Predefined values
-symbol_table["e"] = 2.71828182846 # Predefined values
+symbol_table["pi"] = 3.14159265359 
+symbol_table["e"] = 2.71828182846
 symbol_table["max"] = max
 symbol_table["None"] = None
 
