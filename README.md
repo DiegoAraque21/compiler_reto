@@ -13,6 +13,8 @@ Para correr el sistema es necesario seguir los siguientes pasos:
 
 ### Pruebas Manuales de La Gramática
 
+Para realizar estas pruebas se puede correr el archivo test.txt que se encuentra en el repo, y recibiras los mismo resultados.
+
 1) Suma
 
 Para la suma hacemos una prueba simple de 1+1, cuyo resultado debería ser 2. A continuación anexamos 1 foto del árbol generado y otra que demuestra el resultado de la operación.
