@@ -1,0 +1,12 @@
+1+1
+5-8
+5*5
+16/2
+4^2
+5+8*2/(6+2)
+a = "hola"
+img = load_image("cr7.webp")
+size = gen_vector(7,3)
+img2 = img -> blur(size) -> blur(size) -> blur(size)
+img
+img2
